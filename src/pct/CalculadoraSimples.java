@@ -14,51 +14,48 @@ import java.util.Scanner;
 public class CalculadoraSimples {
     public static void main(String[] args) {
         //Declaração de variaveis
-        int n1, n2, total, opcao;
+        int n1, n2, opcao;
+        double total;
         
-        //Atribuiçao inicial
-        n1 = 0;
-        n2 = 0;
         
         //Criação e instancia do objeto de entrada
-        Scanner entrada= new Scanner(System.in);
-       
-        //Apresentação
-        System.out.println("\n\t\t\t -- Calculadora Simples --\n");
+        Scanner entrada = new Scanner(System.in);
         
-        //Menu
-        System.out.println("\t[1] Para Soma\n\t[2] Para Subtração\n\t[3] Para sair");
-        System.out.print("\nDigite sua opção: ");
-        opcao = entrada.nextInt();
+        do{      
+            //Apresentação
+            System.out.println("\n\t -- Calculadora um pouco simples --\n");
 
-
-        if (opcao > 0 && opcao < 4) {
-            //Entradas
-            System.out.print("Informa N1: ");
-            n1 = entrada.nextInt();
-            System.out.print("Informa N2: ");
-            n2 = entrada.nextInt();
-
-            if (opcao == 1){           
-                //Processamento
-                total = n1 + n2;
-                //Saída
-                System.out.printf("\n\t %d + %d = %d \n", n1, n2, total);
-
-            } else if (opcao == 2){
-                //Processamento
-                total = n1 - n2;
-                //Saída
-                System.out.printf("\n\t %d - %d = %d \n", n1, n2, total);
-
-            } 
-        }else {
-            System.out.println("Opção invalida!");
-        }
-        //Saída1
-        System.out.println("\n\t\t\t -- Programa Encerrado --\n");
-       
-                
-        
+            //Menu
+            System.out.println("\t\t[1] Para soma");
+            System.out.println("\t\t[2] Para subtração");
+            System.out.println("\t\t[3] Para multiplicaçao");
+            System.out.print("\t\t[4] Para Sair: ");
+            opcao = entrada.nextInt();
+            
+            if (opcao!=4){
+                //Entradas
+                System.out.print("\n\n\t\tInforma N1: ");
+                n1 = entrada.nextInt();
+                System.out.print("\t\tInforma N2: ");
+                n2 = entrada.nextInt();
+                switch (opcao){
+                        case 1:
+                            total = n1 + n2;
+                            System.out.printf("\n\t\t %d + %d = %f \n", n1, n2, total);                    
+                            break;
+                        case 2:
+                            total = n1 - n2;
+                            System.out.printf("\n\t\t %d - %d = %f \n", n1, n2, total);
+                            break;
+                        case 3:
+                            total = n1 * n2;
+                            System.out.printf("\n\t\t%d * %d = %f \n", n1, n2, total);
+                            break;
+                        default:
+                            System.out.println("\t\t\t Entrada incorreta ....");
+                }
+            }else 
+                break;
+        }while(opcao!=4);
     }
 }
